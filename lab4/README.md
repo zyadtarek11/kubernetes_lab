@@ -20,8 +20,8 @@ kubectl get deployment -n=production```
 Q7) How do you create a Kubernetes deployment in a specific namespace?
 ```kubectl create deployment snowflake \
   --image=registry.k8s.io/serve_hostname \
-  -n=type_the_namespace_here --replicas=2```
-
+  -n=type_the_namespace_here --replicas=2 
+  ```
 Q8) Can two different namespaces have resources with the same name? Explain your answer
 
 Q9) How can you check the resource quotas and limits for a specific namespace?
