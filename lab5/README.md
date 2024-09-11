@@ -27,10 +27,21 @@ Q4)  How does a Kubernetes Service use selectors to identify the Pods it routes 
 A Kubernetes Service uses selectors to match labels on Pods, routing traffic to those Pods. Yes, a Service can be created without a selector, typically for externalName or manually defined Endpoints.
 
 Q5) Explain how a NodePort service works in Kubernetes. What are its advantages and limitations?
-**Advantages**: easy access from outside the cluster.
-**Limitations**: limited port range, potential security risks.
+A NodePort service in Kubernetes exposes a service on each Node's IP at a static port (the NodePort). When a request is made to any Node's IP on the NodePort, it is forwarded to the service, which then routes it to the appropriate Pod.
+
+**Advantages**:
+
+- easy access from outside the cluster
+  
+**Limitations**:
+
+- limited port range
+- potential security risks
 
 Q6) What is a Headless Service in Kubernetes, and when would you use it? How does it differ from a standard ClusterIP service?
+A Headless Service in Kubernetes is a service without a cluster IP.
+It is used when you want direct access to the Pods without load balancing.
+It differs from a standard ClusterIP service by not providing a stable IP address; instead, it returns the IPs of the associated Pods directly.This is useful for stateful applications where each Pod needs to be addressed individually.
 
 Q7) Create a ClusterIP Service:
  Write a YAML definition for a ClusterIP service that exposes a deployment named my-app running on port 8080. Ensure the service maps to port 80 inside the cluster.
