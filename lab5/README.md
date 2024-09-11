@@ -45,12 +45,16 @@ It differs from a standard ClusterIP service by not providing a stable IP addres
 
 Q7) Create a ClusterIP Service:
  Write a YAML definition for a ClusterIP service that exposes a deployment named my-app running on port 8080. Ensure the service maps to port 80 inside the cluster.
+![alt text](image-2.png)
 
 Q8) Set up a NodePort Service:
  Create a NodePort service that exposes a deployment named backend on port 30001 of each node. Verify that the service is accessible externally via the node’s IP and port 30001.
+![alt text](image-3.png)
+![alt text](image-4.png)
 
 Q9) Test Service with Selectors:
  Create a ClusterIP service named web-service with the selector app: 0ld-web. Deploy two sets of Pods, one with the label app: old-web and another with the label app: api. Verify that only the web Pods receive traffic.
+![alt text](image-5.png)
 
 Q10) Change Service Selector:
  Update an existing service to change its selector from app: old-web to app: new-web. Verify that the traffic is now routed only to Pods with the new label.
