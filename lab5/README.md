@@ -67,6 +67,8 @@ Q10) Change Service Selector:
 After reconfiguring the web-service and change the label to new-web it shows there is no endpoint and that is the expected behaviour
 ![alt text](image-10.png)
 After creating another pod with new-web label it shows that the web-service has an end point with the same IP of the new pod which confirms that everything works as intended :)
+![alt text](image-11.png)
+The expected response from nginx server
 
 Q11) Configure a Service for Multiple Ports:
  Define a service that exposes multiple ports (e.g., 80 for HTTP and 443 for HTTPS) on a deployment named multi-port-app "get the front in app from your own choice". Verify both ports are accessible within the cluster.
