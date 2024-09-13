@@ -73,7 +73,7 @@ The expected response from nginx server
 Q11) Configure a Service for Multiple Ports:
  Define a service that exposes multiple ports (e.g., 80 for HTTP and 443 for HTTPS) on a deployment named multi-port-app "get the front in app from your own choice". Verify both ports are accessible within the cluster.
 ![alt text](image-12.png)
-First I have created deployment yaml file that will create 2 containers: one with nginx image and the second one with apache
+First I have created deployment yaml file that will create 1 containers with custom apache image that supports both http and https
 ![alt text](image-13.png)
 Because the **default port** for apache is **80** and we want to expost it on **port 443** we have to modify the confg file thats why we need a Dockerfile to build a custom apache image with that change
 ![alt text](image-18.png)
