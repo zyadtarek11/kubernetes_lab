@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: old-web-pod
+  labels:
+    app: old-web
+spec:
+  containers:
+  - name: old-web-container
+    image: nginx
+    ports:
+    - containerPort: 80
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: api-pod
+  labels:
+    app: api
+spec:
+  containers:
+  - name: api-container
+    image: nginx
+    ports:
+    - containerPort: 80
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"

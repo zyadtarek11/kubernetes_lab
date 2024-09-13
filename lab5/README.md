@@ -53,11 +53,20 @@ Q8) Set up a NodePort Service:
 ![alt text](image-4.png)
 
 Q9) Test Service with Selectors:
- Create a ClusterIP service named web-service with the selector app: 0ld-web. Deploy two sets of Pods, one with the label app: old-web and another with the label app: api. Verify that only the web Pods receive traffic.
-![alt text](image-5.png)
+ Create a ClusterIP service named web-service with the selector app: old-web. Deploy two sets of Pods, one with the label app: old-web and another with the label app: api. Verify that only the web Pods receive traffic.
+![alt text](image-6.png)
+web-service is running and has an end point at 10.244.0.6:8080
+![alt text](image-8.png)
+old-web-pod is running and has an IP :10.244.0.6 which means that only the traffic routes from web-service routes to it
+![alt text](image-7.png)
+api-pod has an IP: 10.244.0.7 and since web-service doesnot has an end point at this ip that confirms that the traffic doesnot routes to it because it has a different label from the selector label: old-web
 
 Q10) Change Service Selector:
  Update an existing service to change its selector from app: old-web to app: new-web. Verify that the traffic is now routed only to Pods with the new label.
+![alt text](image-9.png)
+After reconfiguring the web-service and change the label to new-web it shows there is no endpoint and that is the expected behaviour
+![alt text](image-10.png)
+After creating another pod with new-web label it shows that the web-service has an end point with the same IP of the new pod which confirms that everything works as intended :)
 
 Q11) Configure a Service for Multiple Ports:
  Define a service that exposes multiple ports (e.g., 80 for HTTP and 443 for HTTPS) on a deployment named multi-port-app "get the front in app from your own choice". Verify both ports are accessible within the cluster.
