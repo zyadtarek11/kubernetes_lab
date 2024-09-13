@@ -6,7 +6,7 @@ metadata:
   labels:
     app: multi-port-app
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: multi-port-app
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: multi-port-container
-        image: zyadtarek/custom-apache-port443:tagname
+        image: zyadtarek/apache-https:latest
         resources:
           requests:
             cpu: 100m

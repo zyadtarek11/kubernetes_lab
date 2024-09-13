@@ -76,7 +76,31 @@ Q11) Configure a Service for Multiple Ports:
 First I have created deployment yaml file that will create 2 containers: one with nginx image and the second one with apache
 ![alt text](image-13.png)
 Because the **default port** for apache is **80** and we want to expost it on **port 443** we have to modify the confg file thats why we need a Dockerfile to build a custom apache image with that change
-![alt text](image-14.png)
+![alt text](image-18.png)
+editing `custom-apache.conf` file and removing the `Listen 80` thats because httpd.conf is defining it for us :)
+![alt text](image-22.png)
 pushed the image into dockerhub (optional)
+![alt text](image-16.png)
+testing the apache2 server on port 8443 https protocol
+![alt text](image-17.png)
+testing the apache2 server on port 8081 http protocol
 ![alt text](image-15.png)
 multi-port cluster IP service created
+![alt text](image-21.png)
+multi-port-app deployments created with  my image on dockerhub
+`zyadtarek/apache-https:latest`
+![alt text](image-20.png)
+Deployment and pods works just fine :)
+**Finally** to check if port 80 and 443 is working correctly you can try the following commands:
+
+## for http
+
+`kubectl port-forward service/multi-port-service 8080:80`
+and `curl http://localhost:8080`
+
+## for https
+
+`kubectl port-forward service/multi-port-service 8443:443`
+and `curl https://localhost:8443`
+
+Thanks for reading all the way down there hope that was useful to you ❤️
